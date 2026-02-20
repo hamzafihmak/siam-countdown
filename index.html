@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIAM Countdown</title>
+<title>SIAM 2026 Countdown</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+/* ===== SIAM Logo Inspired Colors ===== */
 :root {
-    --bg-dark: #111;
-    --card-dark: #1c1c1c;
-    --accent: #f5a623;
-    --text-light: #ffffff;
+    --siam-green: #0C6B3D;
+    --siam-orange: #F28C28;
+    --soft-green: #EAF4EF;
+    --dark-text: #1E1E1E;
+    --light-gray: #F5F5F5;
 }
 
+/* ===== Base ===== */
 * {
     margin: 0;
     padding: 0;
@@ -23,9 +26,9 @@
 }
 
 body {
-    background: radial-gradient(circle at center, #222 0%, #111 70%);
-    font-family: 'Montserrat', sans-serif;
-    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    background: var(--soft-green);
+    color: var(--dark-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,74 +36,85 @@ body {
     text-align: center;
 }
 
+/* ===== Container ===== */
 .container {
-    width: 100%;
-    max-width: 900px;
-    padding: 20px;
+    max-width: 1100px;
+    padding: 40px 20px;
 }
 
+/* ===== Logo ===== */
 .logo {
-    width: 140px;
-    margin-bottom: 30px;
+    width: 170px;
+    margin-bottom: 40px;
 }
 
-/* Title */
-h1 {
-    font-weight: 400;
-    letter-spacing: 4px;
+/* ===== Heading ===== */
+.heading {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: var(--siam-green);
     margin-bottom: 50px;
-    font-size: 28px;
+    font-weight: 600;
 }
 
-/* Countdown layout */
+/* ===== Countdown Layout ===== */
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
-/* Individual card */
+/* ===== Card Design ===== */
 .card {
-    background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
-    border-radius: 12px;
-    padding: 25px 20px;
-    width: 130px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    background: white;
+    border-radius: 18px;
+    padding: 35px 25px;
+    width: 150px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===== Numbers ===== */
 .number {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 700;
+    color: var(--siam-green);
 }
 
+/* ===== Labels ===== */
 .label {
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--accent);
+    margin-top: 12px;
+    font-size: 13px;
     letter-spacing: 2px;
+    color: var(--siam-orange);
+    font-weight: 600;
 }
 
-/* Bottom sentence */
+/* ===== Bottom Sentence ===== */
 .message {
-    margin-top: 50px;
-    font-size: 20px;
-    font-weight: 400;
+    margin-top: 60px;
+    font-size: 22px;
 }
 
 .highlight {
-    color: var(--accent);
     font-weight: 700;
+    color: var(--siam-green);
 }
 
-@media (max-width: 600px) {
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
     .card {
-        width: 100px;
-        padding: 20px 10px;
+        width: 120px;
+        padding: 25px 15px;
     }
 
     .number {
-        font-size: 36px;
+        font-size: 40px;
     }
 }
 
@@ -111,10 +125,16 @@ h1 {
 
 <div class="container">
 
-    <!-- Replace with your own SIAM logo file -->
-    <img src="siam-logo.png" alt="SIAM Logo" class="logo">
+    <!-- Official SIAM Logo -->
+    <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/1/19/SIAM-logo.png" 
+        alt="SIAM Logo" 
+        class="logo"
+    >
 
-    <h1>COMING SOON</h1>
+    <div class="heading">
+        SALON INTERNATIONAL DE L’AGRICULTURE AU MAROC
+    </div>
 
     <div class="countdown">
         <div class="card">
@@ -153,7 +173,8 @@ function updateCountdown() {
     const diff = eventDate - now;
 
     if (diff <= 0) {
-        document.querySelector(".container").innerHTML = "<h1>SIAM HAS BEGUN</h1>";
+        document.querySelector(".container").innerHTML =
+            "<h1 style='color:#0C6B3D;'>SIAM HAS BEGUN</h1>";
         return;
     }
 
